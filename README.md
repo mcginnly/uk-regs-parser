@@ -1,4 +1,8 @@
 # uk-regs-parser
+I'm frustrated by the complexity of some of the UK building regulations. This project is to develop a suite of tools to:
+    1. query a mysql database of UK Building Regulations with the goal of 
+    2. providing a front end which will ask the user a set of basic questions about the building and then 
+    3. return a filtered form of the regulations specific to his or her building.
 
     Main Files:
     Index.php - This page (returns full contents of database up to column Data3)
