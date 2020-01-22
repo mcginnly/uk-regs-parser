@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
  
   //call the ID-para index
-  if (!function_exists('Fparaindex'){
+  if (!function_exists('Fparaindex')){
     include "Fparaindex.php";
   }
   $paraindex = Fparaindex();
@@ -32,14 +32,14 @@ error_reporting(E_ALL);
     }
     
   //now get the corresponding ID of the next clause number
-  if (!function_exists('Fparareturn'){
-    include "Fparareturn.php";
+  if (!function_exists('Fparareturn')){
+    include "Fparareturn.php"
   }
   $id=Fparareturn($nextclause);
   
   //Now get the previous clause ID
-  if (!function_exists('FIDprev'){
-    include "FIDprev.php";
+  if (!function_exists('FIDprev')){
+    include "FIDprev.php"
   }
   $previd = FIDprev($id);
   
