@@ -36,14 +36,14 @@
     //call csvsend to print results to csv
     //include "Fcsvsend.php";
     //Fcsvsend($result);
+    include "FIDreturn.php";
     
     //output search to page
     while ($item = mysqli_fetch_array($result))
     {
-
      echo $item['ID'];
      echo ',';
-     echo $item['Para'];
+     echo FIDreturn($item['ID']);
      echo ',';
      echo $item['Data1'];
      echo '</br>';

@@ -1,20 +1,25 @@
 <?php
 /*This function takes an ID number and then returns the corresponding clause/paragraph number */
 
+
+
+//define function
+function FIDreturn ($IDno){
 //turn debugging on
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-//define function
-function FIDreturn ($IDno){
-
   //use global database connection
   global $mysqli;
+
  
   //call the ID-para index
-  include "Fparaindex.php";
+  if (!function_exists('Fparaindex'){
+    include "Fparaindex.php";
+  }
   $paraindex = Fparaindex();
-
+  
+  
   //get the next clause number that occurs after the input IDno
   while ($test = mysqli_fetch_array($paraindex))
   {
@@ -27,11 +32,15 @@ function FIDreturn ($IDno){
     }
     
   //now get the corresponding ID of the next clause number
-  include "Fparareturn.php";
+  if (!function_exists('Fparareturn'){
+    include "Fparareturn.php";
+  }
   $id=Fparareturn($nextclause);
   
   //Now get the previous clause ID
-  include "FIDprev.php";
+  if (!function_exists('FIDprev'){
+    include "FIDprev.php";
+  }
   $previd = FIDprev($id);
   
   //now get the clause number of the previous clause
