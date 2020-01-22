@@ -1,0 +1,19 @@
+domestic
+mixed
+flats
+extensions
+student
+lift
+sheltered
+inputGroupSelect01
+
+
+Crossreferencing:
+
+write a loop that examines the output of $clause and tests for:
+"diagram"
+"paragraph"
+"table"
+"Section"
+"Approved Document"
+and returns the following numbers or letters until a "." is parsed twice.
