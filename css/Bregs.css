@@ -1,0 +1,18 @@
+.form-control {
+padding:1px; 
+height:24px;
+width:40px; 
+margin-left:10px; 
+margin-right:10px; 
+text-align:center;
+}
+
+.col-form-label {
+padding-top: 1px;
+padding-bottom: 1px;
+height:24px;
+}
+
+label {
+margin-bottom:1rem;
+}
