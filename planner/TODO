@@ -1,12 +1,29 @@
+INPUTS:
 domestic
 mixed
 flats
-extensions
 student
-lift
+largedwelling
 sheltered
+storeyarea
+extension
+material
+loft
+storeyno
+storeynoabove45
+height
 inputGroupSelect01
-
+  0 = Select maximum storey height above ground level
+  1 = Habitable storey below 4.5m above ground level
+  2 = Habitable storey between 4.5m and 18m above ground level
+  3 = Habitable storey above 18m above ground level
+ lift
+ basement
+ mechvent
+ balcony
+ gallery
+ exstairs
+ garage
 
 Crossreferencing:
 
