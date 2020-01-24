@@ -25,6 +25,11 @@ inputGroupSelect01
  exstairs
  garage
 
+Tables:
+Tasks
+1. Input tables as separate Mysql Table entries
+2. Write a table retrieval return function Ftableprint similar to Fparaprint and Fdiagramprint.
+
 Crossreferencing:
 
 write a loop that examines the output of $clause and tests for:
