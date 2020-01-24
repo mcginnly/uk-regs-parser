@@ -32,7 +32,8 @@ Objects:
 Tables:
 Tasks
 1. Input tables as separate Mysql Table entries
-2. Write a table retrieval return function Ftableprint similar to Fparaprint and Fdiagramprint.
+2. Define a table class. Determine methods.
+3. Write a table retrieval return function Ftableprint similar to Fparaprint and Fdiagramprint.
 
 Crossreferencing:
 
