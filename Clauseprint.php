@@ -49,38 +49,38 @@ session_start();
   //initiate count
   $count= NULL;
     
-
+  //load Fdiagramprint
   include "Fdiagramprint.php";
+  
+  //print a test diagram
   Fdiagramprint('2.1');
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////  
     //Call paragraph display function and print to screen
-    include "Fparareturn.php";
-    include "Fparaprint.php";
-    include "Fclausereturn.php";
-    include "Fpara-dropd-list.php";
-    
-    $clauselist=Fparadrop();
+  include "Fpara-dropd-list.php";
+  $clauselist=Fparadrop();
   
-        
-    foreach ($clauselist as $item)
-      {
-        $id = Fparareturn($item['para']);
-        $nextid = FIDnext($id);
-        $clause = Fclausereturn($id,$nextid);
+  //load Fgetclause
+  include "Fgetclause.php";
+  include "Fparaprint.php";  
+         
+  foreach ($clauselist as $item)
+    {
+      $clause=Fgetclause($item);
+      //tag clause with clauseno
         echo '<p id="'.$item['para'].'"></p>';
-        Fparaprint ($clause);
         
-        
-      }
+      //print the payload  
+      Fparaprint ($clause);       
+    }
       
-    ////TODO work out how to display images in the correct order with Fdiagramprint();
-    ////TODO work out how to display tables in the correct order with Ftableprint();
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////TODO work out how to display images in the correct order with Fdiagramprint();
+  ////TODO work out how to display tables in the correct order with Ftableprint();
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    $_SESSION["ID"]=$id; //let id be persistent
-    mysqli_close($mysqli);
-    ?>
+  $_SESSION["ID"]=$id; //let id be persistent
+  mysqli_close($mysqli);
+?>
 
 </div> <!-- end div table -->
 
