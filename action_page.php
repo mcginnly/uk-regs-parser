@@ -23,34 +23,48 @@
 <div class="card">
   <div class="card-body">
 	<?php
-	//  ini_set('display_errors', 'On');
-	//  error_reporting(E_ALL);
+	  ini_set('display_errors', 'On');
+	  error_reporting(E_ALL);
+	
+	//define report function
+	function fpostinput($inputval){
+	
+	if (isset($_POST[$inputval]) != NULL) 		
+		{echo '<div class="row"><div class="col-3">'.$inputval.': </div><div class="col-1">'.htmlspecialchars($_POST[$inputval]).'</div></div>';
+			//var_dump($_POST["$inputval"])
+			;} 				
+		else {echo '<div class="row"><div class="col-3">'.$inputval.': </div><div class="col-1">off</div></div>';}
+	}//end function def
+	
+	//print current state of inputs
+	fpostinput('domestic');
+	fpostinput('mixed');
+	fpostinput('flats');
+	fpostinput('student');
+	fpostinput('largedwelling');
+	fpostinput('sheltered');
+	fpostinput('storeyarea');
+	fpostinput('extension');
+	fpostinput('material');
+	fpostinput('loft');
+	fpostinput('storeyno');
+	fpostinput('storeynoabove45');
+	fpostinput('height');
+	fpostinput('storeyheight');
+	fpostinput('lift');
+	fpostinput('basement');
+	fpostinput('mechvent');
+	fpostinput('balcony');
+	fpostinput('gallery');
+	fpostinput('exstairs');
+	fpostinput('garage');
 
 
-	if (isset($_POST['domestic']) != NULL) 		{echo '<div class="row"><div class="col-sm">Domestic: </div>'.htmlspecialchars($_POST['domestic']).'<br>';} 			
-	else {echo '
-		<div class="row">
-			<div class="col-sm">
-				Domestic: 
-			</div>
-			<div class="col-sm">
-				off<br>
-			</div><div class="col-sm"></div><div class="col-sm"></div>
-		</div>';}
-	if (isset($_POST['mixed']) != NULL) 		{echo 'Mixed: '.htmlspecialchars($_POST['mixed']).'<br>';} 					else {echo 'Mixed: off<br>';}
-	if (isset($_POST['flats']) != NULL) 		{echo 'flats: '.htmlspecialchars($_POST['flats']).'<br>';} 					else {echo 'flats: off<br>';}
-	if (isset($_POST['extension']) != NULL) 	{echo 'Extension: '.htmlspecialchars($_POST['extension']).'<br>';} 			else {echo 'Extension: off<br>';}
-	if (isset($_POST['student']) != NULL) 		{echo 'Student: '.htmlspecialchars($_POST['student']).'<br>';} 				else {echo 'Student: off<br>';}
-	if (isset($_POST['lift']) != NULL) 			{echo 'Lift: '.htmlspecialchars($_POST['lift']).'<br>';} 					else {echo 'Lift: off<br>';}
-	if (isset($_POST['sheltered']) != NULL) 	{echo 'Sheltered: '.htmlspecialchars($_POST['sheltered']).'<br>';} 			else {echo 'Sheltered: off<br>';}
-	if (isset($_POST['storeyheight']) != NULL) 	{echo 'Storey height: '.htmlspecialchars($_POST['storeyheight']).'<br>';} 	else {echo 'Storey Height: off<br>';}
-
-
-	include "Fpara-dropd-list.php";
-    $clauselist=Fparadrop();
-	var_dump($clauslist);
+	//include "Fpara-dropd-list.php";
+    //$clauselist=Fparadrop();
+	//var_dump($clauslist);
 	?>
-	</div>
+	</div> <!-- end card -->
 </div>
 
 

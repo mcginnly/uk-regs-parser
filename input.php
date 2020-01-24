@@ -41,7 +41,7 @@
 
       <div class="checkbox checkbox-switch switch-primary">
         <label>
-          <input type="checkbox" name="domestic" checked="checked" />
+          <input type="checkbox" name="domestic"  />
           <span></span>
           Is the building solely domestic?<br>
           
@@ -90,7 +90,7 @@
       
       <div class="form-group row">
 
-          <input type="storeyarea" class="form-control" id="storeyarea">
+          <input type="text" class="form-control" id="storeyarea" name="storeyarea">
           <label for="storeyarea" class="col-form-label">If so, what is the area (m&sup2;) of the largest storey? < GREY OUT - CONDITIONAL ON PREVIOUS RESPONSE</label>
 
       </div>
@@ -122,17 +122,17 @@
     <hr>
     
       <div class="form-group row">
-          <input type="storeyno" class="form-control" id="storeyno">
-          <label for="storeyno" class="col-form-label">How many storeys does the building have excluding basement(s)?</label>
+          <input type="text" class="form-control" id="storeyno" name="storeyno">
+          <label for="storeyno" class="col-form-label">How many storeys does the building have <i>excluding</i> basement(s)?</label>
       </div>
       
       <div class="form-group row">
-          <input type="storeynoabove45" class="form-control" id="storeynoabove45">
+          <input type="text" class="form-control" id="storeynoabove45" name="storeynoabove45">
           <label for="storeynoabove45" class="col-form-label">How many storeys are above 4.5m above ground level?</label>
       </div>
       
       <div class="form-group row">
-          <input type="height" class="form-control" id="height">
+          <input type="text" class="form-control" id="height" name="height">
           <label for="height" class="col-form-label">How high (m) is the top habitable storey's FFL above ground level?</label>
       </div>
       
@@ -185,7 +185,7 @@
       
       <div class="checkbox checkbox-switch switch-primary">
           <label>
-          <input type="checkbox" name="balcony"  />
+          <input type="checkbox" name="gallery"  />
           <span></span>
             Does any room within the building have a gallery/mezzanine?<br>
         </label>
@@ -193,7 +193,7 @@
       
       <div class="checkbox checkbox-switch switch-primary">
           <label>
-          <input type="checkbox" name="balcony"  />
+          <input type="checkbox" name="exstairs"  />
           <span></span>
             Does the building have external escape stairs?<br>
         </label>
