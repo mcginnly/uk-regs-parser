@@ -28,42 +28,34 @@ session_start();
  //turn debugging on
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
-         
-  //connect to database
-  include "Fdbconn.php";
-  $mysqli=Fdbconn();
-         
-  // initiate ID number if there isn't a persistent id variable from a previous session
-  if (is_null($_SESSION["ID"]))
-    {
-      $_SESSION["ID"]='4'; $nextid='23'; //key values of first clause.
-
-    } 
   
-  $id=$_SESSION["ID"];
-  
-  //initiate nextid 
-  include "FIDnext.php";
-  $nextid=FIDnext($_SESSION["ID"]);
-  
-  //initiate count
-  $count= NULL;
-    
-  //load Fdiagramprint
-  include "Fdiagramprint.php";
-  
-  //print a test diagram
-  Fdiagramprint('2.1');
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////  
-    //Call paragraph display function and print to screen
-  include "Fpara-dropd-list.php";
-  $clauselist=Fparadrop();
-  
-  //load Fgetclause
+  //load Functions
   include "Fgetclause.php";
   include "Fparaprint.php";  
-         
+  include "Fdiagramprint.php";
+  include "Fpara-dropd-list.php";
+  include "Fdbconn.php";
+  include "FIDnext.php";
+  
+  //connect to database
+  $mysqli=Fdbconn();
+  
+
+  //initiate nextid 
+  $nextid=FIDnext($_SESSION["ID"]);
+
+  
+  //get a list of clauses to print
+  $clauselist=Fparadrop();
+
+  
+  //print a test diagram
+  Fdiagramprint('2.2');
+
+
+  //////////////////////////////////////////////////////////////////////
+  //Call clause display function and print its payload to screen
+          
   foreach ($clauselist as $item)
     {
       $clause=Fgetclause($item);
@@ -76,7 +68,8 @@ session_start();
       
   ////TODO work out how to display images in the correct order with Fdiagramprint();
   ////TODO work out how to display tables in the correct order with Ftableprint();
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+   
     
   $_SESSION["ID"]=$id; //let id be persistent
   mysqli_close($mysqli);
