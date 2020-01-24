@@ -25,6 +25,10 @@ inputGroupSelect01
  exstairs
  garage
 
+Objects:
+1. Define class for clause. Determine methods.
+2. Re-write functions to use object.
+
 Tables:
 Tasks
 1. Input tables as separate Mysql Table entries
