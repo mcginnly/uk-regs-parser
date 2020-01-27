@@ -10,9 +10,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 <link rel="stylesheet" href="css/css-checkbox-switch.css"> 
-
+<script src="js/conditional-visibility.js"></script>
 
 
 <style type="text/css">
@@ -23,7 +22,7 @@
 
 <body style="background-color:#f8f9fa;">
 
-<script src="js/bregs.js"></script>
+
 
 <div class="container" style="margin-top3:30px">
 <div class="card">
@@ -74,27 +73,31 @@
       
       <div class="checkbox checkbox-switch switch-primary">
           <label>
-          <input type="checkbox" name="largedwelling"  />
+          <input type="checkbox" name="sheltered"  />
           <span></span>
           Is the building intended to serve as sheltered housing?<br>
-        </label>
+          </label>
       </div> <!--end checkbox--> 
             
       <div class="checkbox checkbox-switch switch-primary">
           <label>
-          <input type="checkbox" name="sheltered"  />
+          <input type="checkbox" id="largedwelling" name="largedwelling" />
           <span></span>
           Is the building a large dwelling?<br>
-        </label>
-      </div> <!--end checkbox--> 
+          </label>
+      </div> <!-- end checkbox--> 
       
+      
+
+      <div data-visibility-target="largedwelling">
       <div class="form-group row">
 
-          <input type="text" class="form-control" id="storeyarea" name="storeyarea">
-          <label for="storeyarea" class="col-form-label">If so, what is the area (m&sup2;) of the largest storey? < GREY OUT - CONDITIONAL ON PREVIOUS RESPONSE</label>
+            <input type="text" class="form-control" id="storeyarea" name="storeyarea">
+            <label for="storeyarea" class="col-form-label">If so, what is the area (m&sup2;) of the largest storey?</label>
 
-      </div>
-      
+      </div> <!--end row-->
+      </div> <!--end visibility div -->
+
       <div class="checkbox checkbox-switch switch-primary">
           <label>
           <input type="checkbox" name="extension"  />
