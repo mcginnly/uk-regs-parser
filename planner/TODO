@@ -25,6 +25,9 @@ inputGroupSelect01
  exstairs
  garage
 
+Variables:
+define notdomestic, notmixed, notflat etc.
+
 Objects:
 1. Define class for clause. Determine methods.
 2. Re-write functions to use object.
@@ -36,6 +39,8 @@ Tasks
 3. Write a table retrieval return function Ftableprint similar to Fparaprint and Fdiagramprint.
 
 Crossreferencing:
+Investigate using javascript for 'magic words'.
+Investigate using javascript for image previews.
 
 write a loop that examines the output of $clause and tests for:
 "diagram"
