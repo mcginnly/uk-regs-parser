@@ -59,7 +59,7 @@
           <label>
           <input type="checkbox" name="flats"  />
           <span></span>
-          Does the building contain flats? <br>
+          Does the building solely contain flats? <br>
         </label>
       </div> <!--end checkbox--> 
       

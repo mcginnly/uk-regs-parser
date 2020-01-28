@@ -31,6 +31,7 @@
 
     //query the database for a list of rows and paras
     $query = "SELECT ID,Para,Data1 FROM B1v12019 WHERE Data1 LIKE '%paragraph%' ";
+
     $result = $mysqli->query($query);
 
     //call csvsend
