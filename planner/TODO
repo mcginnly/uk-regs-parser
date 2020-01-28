@@ -42,10 +42,3 @@ Crossreferencing:
 Investigate using javascript for 'magic words'.
 Investigate using javascript for image previews.
 
-write a loop that examines the output of $clause and tests for:
-"diagram"
-"paragraph"
-"table"
-"Section"
-"Approved Document"
-and returns the following numbers or letters until a "." is parsed twice.
