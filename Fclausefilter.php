@@ -8,44 +8,138 @@ error_reporting(E_ALL);
 
 
 function clausefilter($clauselist, $input){
+//echo '</br>'.$input;
 
 	global $csv;
 	$count=0;
 	
-	//check if input is domestic
-		if ($input == 'domestic'){ 
-	//if so, cycle through the clauselist untill the ruleset ($csv) matches the 'dwelling' string and then substitute the visibilty field for off (0)
-			foreach ($clauselist as $item){
-				
-				if ($csv[$count][1] == 'dwelling')
+	// INCLUDES //
+	
+	//check if input is 'all', if so, cycle through the clauselist untill the ruleset inlcude column [6] ($csv) matches the 'all' string and then substitute the visibilty field for on(1)
+		if ($input == 'all'){ 
+			foreach ($clauselist as $item){			
+				if ($csv[$count][6] == 'all')
 					{
-						$clauselist[$count]['vis'] = 0;
-					}	//end if		 
-				 
-				$count++; 
-				
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
 			} //end foreach
-			$count=0;
-			var_dump($clauselist);
+			$count=0;	
+		} //end if
+		
+		
+	
+	//check if input is domestic, if so, cycle through the clauselist untill the ruleset ($csv) matches the 'dwelling' string and then substitute the visibilty field for on (1)
+		if ($input == 'dwellinghouse'){ 
+			foreach ($clauselist as $item){			
+				if ($csv[$count][7] == 'dwelling')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;	
 		} //end if
 		
 		if ($input == 'flats'){ 
-			echo 'flats ready to be passed clauselist';
-				foreach ($clauselist as $item){
-				
-				if ($csv[$count][1] == 'flats')
+				foreach ($clauselist as $item){				
+				if ($csv[$count][8] == 'flats')
 					{
-						$clauselist[$count]['vis'] = 0;
-					}	//end if		 
-				 
-				$count++; 
-				
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
 			} //end foreach
-			$count=0;
-			var_dump($clauselist);
+			$count=0;			
 		} //end if
 
-//var_dump($clauselist);
+		if ($input == 'mixed'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][9] == 'mixed')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+		
+		if ($input == 'sheltered'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][10] == 'sheltered')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+		
+		if ($input == 'historic'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][11] == 'historic')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if	
+		
+		if ($input == 'largedwelling'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][12] == 'largedwelling')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if	
+		
+		if ($input == 'extension'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][13] == 'extension')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+		
+		if ($input == 'student'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][15] == 'student')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+		
+		if ($input == 'loft'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][16] == 'loft')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+		
+		if ($input == 'garage'){ 
+				foreach ($clauselist as $item){				
+				if ($csv[$count][17] == 'garage')
+					{
+						$clauselist[$count]['vis'] = 1;
+					}	//end if		 				 
+				$count++; 				
+			} //end foreach
+			$count=0;			
+		} //end if
+
 return $clauselist;	
 	
 } //end function

@@ -40,9 +40,9 @@
 
       <div class="checkbox checkbox-switch switch-primary">
         <label>
-          <input type="checkbox" name="domestic"  />
+          <input type="checkbox" name="dwellinghouse"  />
           <span></span>
-          Is the building solely domestic?<br>
+          Is the building a dwellinghouse? (i.e. Domestic and does not include a flat or is in a block of flats)<br>
           
         </label>
       </div>   <!--end checkboxdown-->
@@ -51,7 +51,7 @@
           <label>
           <input type="checkbox" name="mixed"  />
           <span></span>
-          Is the building mixed use? (ie. Residential + something else) <br>
+          Is the building mixed use? (i.e. Residential + non-residential or a dwellinghouse + flat.) <br>
         </label>
       </div> <!--end checkbox-->
 
