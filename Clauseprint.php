@@ -33,7 +33,7 @@ session_start();
   include "Fgetclause.php";
   include "Fparaprint.php";  
   include "Fdiagramprint.php";
-  include "Fpara-dropd-list.php";
+  include "Fparadrop.php";
   include "Fdbconn.php";
   include "FIDnext.php";
   
@@ -42,12 +42,11 @@ session_start();
   
 
   //initiate nextid 
-  $nextid=FIDnext($_SESSION["ID"]);
+  //$nextid=FIDnext($_SESSION["ID"]);
 
   
-  //get a list of clauses to print
+  //get a full list of clauses to print
   $clauselist=Fparadrop();
-
   
   //print a test diagram
   Fdiagramprint('2.2');
@@ -58,16 +57,22 @@ session_start();
           
   foreach ($clauselist as $item)
     {
+      //get the data payload for the next clause number
       $clause=Fgetclause($item);
-      //tag clause with clauseno
-        echo '<p id="'.$item['para'].'"></p>';
+      
+      //tag clause with clausenumber (so webpage can be indexed)
+      echo '<p id="'.$item['para'].'"></p>';
         
-      //print the payload  
-      Fparaprint ($clause);       
+      //print the payload if vis flag is 1  
+      if ($item['vis'] == 1){
+      Fparaprint ($clause);  
+    }     
     }
       
   ////TODO work out how to display images in the correct order with Fdiagramprint();
   ////TODO work out how to display tables in the correct order with Ftableprint();
+  ////Retrieve a modified clause list based on input rather than the full list.
+  ////Or consider using bootstrap visibility functions.
   //////////////////////////////////////////////////////////////////////
    
     

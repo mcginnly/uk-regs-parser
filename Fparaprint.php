@@ -6,14 +6,14 @@
     $count=NULL;
     echo'<div class="rounded" style="background-color:#fff;">';
     echo'<div class="table-responsive" > ';
-    echo'<table class="table" style="margin-top:1em;">';
+    echo'<table class="table">';
     echo'<thead class="thead-dark">';
     echo'<tr>';
     echo'<th scope="col">Section</th>';
+    echo'<th scope="col">No.</th>';
     echo'<th scope="col">Clause</th>';
-    echo'<th scope="col">Data1</th>';
-    echo'<th scope="col">Data2</th>';
-    echo'<th scope="col">Data3</th>';
+    echo'<th scope="col"></th>';
+    echo'<th scope="col"></th>';
     echo'</tr>';
     echo'</thead>';
     echo'  <tbody>';
@@ -32,7 +32,7 @@
         echo 'normal';
       }      
         
-    //Iterate through array and display on webpage (should move this to separate function eventually)
+    //Iterate through array and display on webpage 
     while($test = mysqli_fetch_array($clause))
     {
     echo"<td>".$test['Section']."</td>";

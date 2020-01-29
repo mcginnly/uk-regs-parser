@@ -60,7 +60,7 @@ session_start();
          error_reporting(E_ALL);
 
                 
-         include "Fpara-dropd-list.php";
+         include "Fparadrop.php";
          $clauselist=Fparadrop();
 
          foreach ($clauselist as $item){
