@@ -6,10 +6,11 @@ I'm frustrated by the complexity of some of the UK building regulations. This pr
 
     Main Files:
     index.php - Initial page (contains links to principal files and returns full contents of database up to column Data3)
-    ClauseReport.php - A database navigator.
-    Clauseprint.php - Assembles nearly the full document by first establishing a list of clauses and then using functions to return each clause contents. Something like this method will be used for the ultimate output, by passing an exlude/include list to a function. Also tests the Fdiagramprint function.
     input.php - Basic input forms (incomplete)
-    action_page.php - (incomplete) Currently just displays the input values obtained from input.php. Will eventually cross reference the 'rules' file to determine an exlude/include list of clause numbers to display
+    action_page.php - takes input, obtains a full list of clauses with visibility turned off and then runs the inputs through a visibility filter to create a bespoke clause list, then displays them.
+    
+    ClauseReport.php - A database navigator.
+    Clauseprint.php - Assembles nearly the full document by first establishing a list of clauses and then using functions to return each clause contents. Also tests the Fdiagramprint function.
     Output.CSV.php - Sends a database query to a function and prints the results to a CSV file
 
     Utilities
