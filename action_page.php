@@ -23,6 +23,8 @@
 <div class="card" style="margin-top: 1rem">
   <div class="card-body">
 	<?php
+	session_start();
+	
 	  ini_set('display_errors', 'On');
 	  error_reporting(E_ALL);
 	
@@ -120,8 +122,20 @@
 	
 	foreach ($clauselist as $item)
     {
-
-	  //check the visibility flag
+	//check if 'para' suggests a diagram, if so print it, else print clause.	
+	if (substr($item['para'],0,7) == 'Diagram'){
+		if ($item['vis'] == 1){
+			
+			//tag diagram with diagram number
+			echo '<p id="'.$item['para'].'"></p>';
+			
+			//print the diagram
+			Fdiagramprint(substr($item['para'],7));
+			
+		}//endif
+	}
+	else {
+	  //check the visibility flag is on
 	  if ($item['vis'] == 1){
 		//get the data payload for the next clause number
 		$clause=Fgetclause($item);
@@ -129,12 +143,12 @@
 		//tag clause with clausenumber (so webpage can be indexed)
 		echo '<p id="'.$item['para'].'"></p>';
         
-		//print the payload if vis flag is 1  
-      
-		Fparaprint ($clause);  
+		//print the payload 
+      	Fparaprint ($clause);  
+		
 	  } //end if   
-
-    }
+	} //end else
+    } //end forearch
 
 
 	?>

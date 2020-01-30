@@ -1,6 +1,7 @@
  <?php 
   function Fparaprint($clause){
  //turn debugging on
+ 
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
     $count=NULL;
@@ -44,7 +45,7 @@
     echo '</tr>';
     $count=$count+1;
     }
-  
+    echo'</tbody>';
     echo'</table>';
     echo'</div> '; //<!-- end div table --> 
     echo'</div> '; //<!-- end row -->
