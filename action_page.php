@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+<link rel="stylesheet" href="/css/Bregs.css">
 <style type="text/css">
    body { background-color:#fff; }
 </style>
@@ -36,6 +36,8 @@
 	include "FIDnext.php";
 	include "Fclausefilter.php";
 	include "Fcsvread.php";
+	include "Ftableprint.php";
+	include "Ftablereturn.php";
   
 	//define report function
 	function fpostinput($inputval){
@@ -133,7 +135,21 @@
 			Fdiagramprint(substr($item['para'],7));
 			
 		}//endif
-	}
+	}//endif
+	//check if 'para' suggests a table, if so print it, else print clause.
+	elseif (substr($item['para'],0,5) == 'Table'){
+		if ($item['vis'] == 1){
+			//get the data payload for the next Table number
+			$table=Ftablereturn($item['para']);
+		
+			//tag table with table number
+			echo '<p id="'.$item['para'].'"></p>';
+			
+			//print the payload 
+			Ftableprint ($table);
+			
+		}//endif
+	}//end elsif
 	else {
 	  //check the visibility flag is on
 	  if ($item['vis'] == 1){
