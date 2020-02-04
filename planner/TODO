@@ -1,32 +1,18 @@
-INPUTS:
-domestic
-mixed
-flats
-student
-largedwelling
-sheltered
-storeyarea
-extension
-material
-loft
-storeyno
-storeynoabove45
-height
-inputGroupSelect01
-  0 = Select maximum storey height above ground level
-  1 = Habitable storey below 4.5m above ground level
-  2 = Habitable storey between 4.5m and 18m above ground level
-  3 = Habitable storey above 18m above ground level
- lift
- basement
- mechvent
- balcony
- gallery
- exstairs
- garage
+Long-terms tasks:
+1. Mysqli Prepared Statements
+2. Review framework - Laravel. Symfony etc.
+3. Re-write as an XML / AJAX environment.
 
-Variables:
-define notdomestic, notmixed, notflat etc.
+Immediate Tasks
+1. List of input variables.
+2. Input validation
+3. Complete tables
+4. Write code and css to handle B Requirements
+5. Tidy up files and delete un-needed functions etc.
+
+Javascript Features
+1. Automated indexing
+2. Floating input 
 
 Objects:
 1. Define class for clause. Determine methods.
