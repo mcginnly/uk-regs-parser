@@ -1,7 +1,9 @@
  <?php 
   function Ftableprint($table){
  //turn debugging on
- 
+
+  $datafields = ($table->field_count -2);
+
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
     $count=NULL;
@@ -11,7 +13,7 @@
     echo'<table class="table">';
     echo'<thead class="thead-light">';
     echo'<tr>';
-    echo'<th scope="col"><h5>Table '.$test['TableNo'].' | '.$test['Data1'].'</h5></th>';
+    echo'<th scope="col" colspan="3"><h5>Table '.$test['TableNo'].' | '.$test['Data1'].'</h5></th>';
     echo'<th scope="col"></th>';
     echo'<th scope="col"></th>';
     echo'<th scope="col"></th>';
@@ -39,7 +41,19 @@
     
     echo"<td>".$test['Data1']."</td>";
     echo"<td>".$test['Data2']."</td>";
-    echo"<td>".$test['Data3']."</td>";
+    //conditionally add data columns if they exist in the table.
+    if ($datafields > 2){
+        echo"<td>".$test['Data3']."</td>";
+    }
+    if ($datafields > 3){
+        echo"<td>".$test['Data4']."</td>";
+    }
+    if ($datafields > 4){
+        echo"<td>".$test['Data5']."</td>";
+    }
+    if ($datafields > 5){
+        echo"<td>".$test['Data6']."</td>";
+    }
 
     echo '</tr>';
     $count=$count+1;

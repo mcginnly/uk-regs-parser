@@ -1,13 +1,15 @@
  <?php 
-  function Fparaprint($clause){
- //turn debugging on
- 
+  function Fparaprint($clause, $para){
+
+  //turn debugging on 
   ini_set('display_errors', 'On');
   error_reporting(E_ALL);
+  
+  
     $count=NULL;
     echo'<div class="rounded" style="background-color:#fff;">';
     echo'<div class="table-responsive" > ';
-    echo'<table class="table">';
+    echo'<table class="table" id="'.$para.'">';
     echo'<thead class="thead-dark">';
     echo'<tr>';
     echo'<th scope="col">Section</th>';

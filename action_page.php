@@ -80,9 +80,9 @@
 	//connect to database
 	$mysqli=Fdbconn();
 
-	//get a full list of clauses with vis field set to 0
+	//get a full list of clauses and set  vis flag to  0
 	$clauselist=Fparadrop();
-	
+
 	//pass clauselist through the visfilter
 	//$clauselist=Fclausefilter($clauselist);
 
@@ -93,7 +93,7 @@
 
 	//set the clauselist so that all common clauses are visible
 	$clauselist=clausefilter($clauselist, 'all');
-	
+
 	//if an input has been checked, pass the clauselist through the visfilter
 	if (isset($_POST['dwellinghouse']) != NULL) { $clauselist=clausefilter($clauselist, 'dwellinghouse');} 
 	if (isset($_POST['mixed']) != NULL) { $clauselist=clausefilter($clauselist, 'mixed');}
@@ -121,29 +121,32 @@
 	$storeynoabove45 =  $_POST['storeynoabove45'];
 	$height =  $_POST['height'];
 	$storeyheight =  $_POST['storeyheight'];	
-	
+
 	foreach ($clauselist as $item)
     {
+		$para=$item['para'];
+		
+		
 	//check if 'para' suggests a diagram, if so print it, else print clause.	
-	if (substr($item['para'],0,7) == 'Diagram'){
+	if (substr($para,0,7) == 'Diagram'){
 		if ($item['vis'] == 1){
 			
 			//tag diagram with diagram number
-			echo '<p id="'.$item['para'].'"></p>';
+			echo '<p id="'.$para.'"></p>';
 			
 			//print the diagram
-			Fdiagramprint(substr($item['para'],7));
+			Fdiagramprint(substr($para,7));
 			
 		}//endif
 	}//endif
 	//check if 'para' suggests a table, if so print it, else print clause.
-	elseif (substr($item['para'],0,5) == 'Table'){
+	elseif (substr($para,0,5) == 'Table'){
 		if ($item['vis'] == 1){
 			//get the data payload for the next Table number
-			$table=Ftablereturn($item['para']);
+			$table=Ftablereturn($para);
 		
 			//tag table with table number
-			echo '<p id="'.$item['para'].'"></p>';
+			echo '<p id="'.$para.'"></p>';
 			
 			//print the payload 
 			Ftableprint ($table);
@@ -156,12 +159,11 @@
 		//get the data payload for the next clause number
 		$clause=Fgetclause($item);
       
-		//tag clause with clausenumber (so webpage can be indexed)
-		echo '<p id="'.$item['para'].'"></p>';
+		//tag clause with clausenumber (so webpage can be indexed) and print the payload
+		//echo '<p id="'.$item['para'].'"></p>';
         
-		//print the payload 
-      	Fparaprint ($clause);  
-		
+      	Fparaprint ($clause, $para);
+				
 	  } //end if   
 	} //end else
     } //end forearch

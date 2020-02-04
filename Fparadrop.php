@@ -22,7 +22,7 @@ function Fparadrop (){
     $test['vis'] = 0;
 
     $pdrow[]=$test;
-    
+
   }
 
  return $pdrow;
