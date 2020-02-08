@@ -35,7 +35,7 @@ session_start();
   include "Fdiagramprint.php";
   include "Fparadrop.php";
   include "Fdbconn.php";
-  include "FIDnext.php";
+  //include "FIDnext.php";
   
   //connect to database
   $mysqli=Fdbconn();
@@ -76,7 +76,7 @@ session_start();
   //////////////////////////////////////////////////////////////////////
    
     
-  $_SESSION["ID"]=$id; //let id be persistent
+  //$_SESSION["ID"]=$id; //let id be persistent
   mysqli_close($mysqli);
 ?>
 

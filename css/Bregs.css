@@ -20,12 +20,16 @@ margin-bottom:1rem;
 /*Paragraph table header colours*/
 .table .thead-dark th {
 color: #fff;
-background-color: #64f99e;
-border-color: #64f99e;
+background-color: #a3fdc6;
+border-color: #a3fdc6;
 }
 
 .table .thead-light th {
 color: #fff;
 background-color: #007d32;
 border-color: #007d32;
+}
+
+.rounded {
+margin-top:1rem;
 }
