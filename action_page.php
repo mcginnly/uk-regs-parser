@@ -11,6 +11,7 @@
 <style type="text/css">
    body { background-color:#fff; }
 </style>
+<!--<script type="text/javascript" src="js/bregs.js"></script>-->
 
 </head>
 
@@ -19,7 +20,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div class="container" style="margin-top3:30px">
+
+<div class="container" style="margin-top3:30px" id="cont">
+
 <div class="card" style="margin-top: 1rem">
   <div class="card-body">
 	<?php
@@ -163,7 +166,7 @@
 		//echo '<p id="'.$item['para'].'"></p>';
         
       	Fparaprint ($clause, $para);
-				
+		//echo "<script>linker('.$para.');</script>"
 	  } //end if   
 	} //end else
     } //end forearch
@@ -175,5 +178,85 @@
 
 
 </div>
+<script>
+//This script searches for paragraphs, requirements, sections, appendices, tables and diagrams and replaces occurences with hyperlinks.
+
+//retrieve text string of the whole page
+
+
+//define function to replace text
+function hplink(para, changetype)
+	{
+		var myInnerHtml = document.getElementById("cont").innerHTML;
+		var regex = new RegExp(`${changetype} ${para}`, `ig`);
+		var res = myInnerHtml.replace(regex,`<a href=\"http://192.168.1.132/action_page.php#${para}\">${changetype} ${para}</a>`);
+		document.getElementById("cont").innerHTML = res;	
+	}
+
+
+//load the index.json
+fetch('json/index.json')
+.then((response) => 
+	{
+	return response.json();
+	})
+	
+.then((myJson) => {
+	console.log(myJson);
+	//link paragraphs
+	var i;
+	for (i =0; i < myJson.Para.length; i++)
+	{
+		hplink(myJson.Para[i], "paragraph");
+
+	}
+	//link requirements
+	var i;
+	for (i =0; i < myJson.Requirement.length; i++)
+	{
+		hplink(myJson.Requirement[i], "Requirement");
+
+	}
+	//link Diagrams
+	var i;
+	for (i =0; i < myJson.Diagram.length; i++)
+	{
+		hplink(myJson.Diagram[i], "Diagram");
+
+	}
+	//link Tables
+	var i;
+	for (i =0; i < myJson.Table.length; i++)
+	{
+		hplink(myJson.Table[i], "Table");
+
+	}
+	//link Sections
+	var i;
+	for (i =0; i < myJson.Section.length; i++)
+	{
+		hplink(myJson.Section[i], "Section");
+
+	}
+	//link Regulation
+	var i;
+	for (i =0; i < myJson.Regulation.length; i++)
+	{
+		hplink(myJson.Regulation[i], "Regulation");
+
+	}
+	//link Appendix
+	var i;
+	for (i =0; i < myJson.Appendix.length; i++)
+	{
+		hplink(myJson.Appendix[i], "Appendix");
+
+	}
+});
+
+
+
+</script>
+<p id="demo"></p>
 </body>
 </html>
